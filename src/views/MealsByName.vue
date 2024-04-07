@@ -12,7 +12,7 @@
 let keyword = $ref('');
 
 function searchMeals() {
-  navigateTo('/meals/' + keyword)
+
 }
 
 </script>

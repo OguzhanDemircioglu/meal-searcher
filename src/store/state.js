@@ -1,3 +1,5 @@
-export default {
-  meals:['Salmon']
-}
+const state = {
+  meals: ['Salmon']
+};
+
+export default state;
