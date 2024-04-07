@@ -1,7 +1,5 @@
 <template>
   <div class=" flex flex-col p-8 items-center justify-center">
-
-
     <div class="flex gap-1 justify-center mt-2">
       <router-link
         v-for="letter in letters"
@@ -9,30 +7,23 @@
         :to="{ name: 'byLetter', params: { letter } }"
         class="w-5 h-2 flex items-center justify-center hover:text-orange-500 hover:scale-150 transition-all"
       >
-        {{letter}}
+        {{ letter }}
       </router-link>
-
-<!--      <pre  class="flex gap-1 justify-center mt-2">{{ingredients}}</pre>-->
     </div>
   </div>
 </template>
 
 <script setup>
-import {computed, onMounted,ref} from "vue";
-import store1 from "../store/index.js";
+import {computed, onMounted, ref} from "vue";
 import axiosClient from "../axiosClient.js"
-
-const meals = computed(() => store1.state.meals);
 
 const letters = 'ABCDEFGHIJKLMOPQRSTUVWXYZ'.split('');
 const ingredients = ref([])
 
-onMounted(async ()=> {
-  const res= await axiosClient.get('list.php?i=list')
-
-
+/*onMounted(async () => {
+  const res = await axiosClient.get('list.php?i=list')
   ingredients.value = res.data;
-})
+})*/
 </script>
 
 

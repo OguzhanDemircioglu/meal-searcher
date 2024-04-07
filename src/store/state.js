@@ -1,5 +1,6 @@
-const state = {
-  meals: ['Salmon']
-};
-
-export default state;
+export default {
+  searchedMeals: [],
+  mealsByLetter: [],
+  mealsByIngredient: [],
+  ingredient: {}
+}
