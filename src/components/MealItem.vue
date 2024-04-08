@@ -16,10 +16,10 @@ const props = defineProps({
         <img :src="meal.strMealThumb" :alt="strMeal">
       </router-link>
       <h3 class="py-3 mb-3 font-bold">{{ meal.strMeal }}</h3>
-      <p class="mb-3" v-if="meal.strInstructions">
+      <p class="mb-6" v-if="meal.strInstructions">
         {{ $filters.truncateWords(meal.strInstructions, 20) }}...
       </p>
-      <div class="justify-center flex">
+      <div class="gap-2 absolute">
         <YoutubeButton :href="meal.strYoutube"/>
         <ViewComponent :href="meal.strSource"/>
       </div>
