@@ -1,11 +1,19 @@
 <template>
   <header class="bg-green-300 shadow h-16 flex justify-between items-stretch">
-    <router-link
-        :to="{ name: 'home' }"
-        class="inline-flex items-center h-full px-5 text-orange-500 font-bold"
-    >
-      Home
-    </router-link>
+    <div>
+      <router-link
+          :to="{ name: 'home' }"
+          class="inline-flex items-center h-full px-5 text-orange-500 font-bold"
+      >
+        Home
+      </router-link>
+      <router-link
+          :to="{ name: 'categories' }"
+          class="inline-flex items-center h-full px-5 text-orange-500 font-bold"
+      >
+        Categories
+      </router-link>
+    </div>
     <div class="flex items-center gap-1">
       <router-link
           :to="{ name: 'byName' }"
