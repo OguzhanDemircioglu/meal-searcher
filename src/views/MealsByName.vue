@@ -31,28 +31,32 @@ onMounted(() => {
   </div>
   <div class="px-8 pb-3">
     <input
-      type="text"
-      v-model="keyword"
-      class="rounded border-2 bg-white border-gray-200 focus:ring-orange-500 focus:border-orange-500 w-full"
-      placeholder="Search for Meals"
-      @change="searchMeals"
+        type="text"
+        v-model="keyword"
+        class="rounded border-2 bg-white border-gray-200 focus:ring-orange-500 focus:border-orange-500 w-1/3"
+        placeholder="Search for Meals"
+        @change="searchMeals"
     />
   </div>
 
-  <div>
-    <div v-for="meal in meals" :key="meal.idMeal" class="p-8 border-b border-gray-200">
-      <img :src="meal.strMealThumb" :alt="strMeal">
-      <h3>{{ meal.strMeal }}</h3>
+  <div class="grid md:grid-cols-5 gap-5 p-8">
+    <div v-for="meal in meals" :key="meal.idMeal" class="p-8 border-b border-gray-200 bg-gray-300 shadow rounded-xl">
+      <router-link :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
+        <img :src="meal.strMealThumb" :alt="strMeal">
+      </router-link>
+      <h3 class="py-3 font-bold">{{ meal.strMeal }}</h3>
       <div>
-        <a :href="meal.strYoutube" target="_blank">Youtube</a>
-        <!--        <router-link to="/">
-                  View
-                </router-link>-->
+        <a class="py-2 rounded-border-2 border-red-600 hover:bg-red-500 hover:text-red-100 transition-colors"
+           :href="meal.strYoutube">Youtube</a>
+        <router-link
+            class="mx-3 py-2 rounded-border-2 border-red-600 hover:bg-orange-500 hover:text-red-100 transition-colors"
+            to="/">
+          View
+        </router-link>
       </div>
     </div>
   </div>
 </template>
-
 
 
 <style lang="scss" scoped>
