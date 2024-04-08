@@ -2,6 +2,7 @@
 
 import ViewComponent from "./ViewComponent.vue";
 import YoutubeButton from "./YoutubeButton.vue";
+import * as $filters from "../filter/index.js";
 
 const props = defineProps({
   meals: Object
@@ -15,7 +16,10 @@ const props = defineProps({
         <img :src="meal.strMealThumb" :alt="strMeal">
       </router-link>
       <h3 class="py-3 mb-3 font-bold">{{ meal.strMeal }}</h3>
-      <div>
+      <p class="mb-3" v-if="meal.strInstructions">
+        {{ $filters.truncateWords(meal.strInstructions, 20) }}...
+      </p>
+      <div class="justify-center flex">
         <YoutubeButton :href="meal.strYoutube"/>
         <ViewComponent :href="meal.strSource"/>
       </div>
