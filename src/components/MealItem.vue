@@ -14,12 +14,16 @@ const props = defineProps({
       <router-link :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
         <img :src="meal.strMealThumb" :alt="strMeal">
       </router-link>
-      <h3 class="py-3 font-bold">{{ meal.strMeal }}</h3>
+      <h3 class="py-3 mb-3 font-bold">{{ meal.strMeal }}</h3>
       <div>
         <YoutubeButton :href="meal.strYoutube"/>
         <ViewComponent :href="meal.strSource"/>
       </div>
     </div>
+  </div>
+  <div v-if="!meals.length"
+       class="flex justify-center text-gray-500">
+    <p>No Meals</p>
   </div>
 </template>
 

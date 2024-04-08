@@ -1,5 +1,9 @@
 <template>
+  <div class="p-8 pb-0">
+    <h1 class="text-4xl font-bold mb-4 text-orange-500">SearchByLetter</h1>
+  </div>
   <div class=" flex flex-col p-8 items-center justify-center">
+
     <div class="flex gap-1 justify-center mt-2">
       <router-link
           v-for="letter in letters"
@@ -18,20 +22,16 @@
 import {computed} from "@vue/reactivity";
 import store from "../store";
 import {useRoute} from "vue-router";
-import {onMounted, watch} from "vue";
+import {watch} from "vue";
 import MealItem from "../components/MealItem.vue";
 
 const route = useRoute();
 const letters = 'ABCDEFGHIJKLMOPQRSTUVWXYZ'.split('');
-const meals = computed(()=> store.state.mealsByLetter)
+const meals = computed(() => store.state.mealsByLetter)
 
 watch(route, () => {
   store.dispatch("searchMealsByLetter", route.params.letter);
 });
-
-/*onMounted(()=> {
-  store.dispatch('searchMealsByLetter', route.params.letter)
-})*/
 </script>
 
 <style lang="scss" scoped>

@@ -3,8 +3,6 @@ import {computed} from '@vue/reactivity';
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import store from "../store";
-import YoutubeButton from "../components/YoutubeButton.vue";
-import ViewComponent from "../components/ViewComponent.vue";
 import MealItem from "../components/MealItem.vue";
 
 const route = useRoute();
@@ -15,7 +13,7 @@ function searchMeals() {
   if (keyword.value) {
     store.dispatch("searchMeals", keyword.value);
   } else {
-    //store.commit("setSearchedMeals", []);
+    store.commit("setSearchedMeals", []);
   }
 }
 
