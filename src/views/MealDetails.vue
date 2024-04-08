@@ -44,7 +44,7 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class="md:flex-1 px-4">
+        <div class="md:flex-2 px-4">
           <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ meal.strMeal }}</h2>
 
           <div class="flex">
@@ -67,24 +67,26 @@ onMounted(() => {
             <span class="text-gray-600 dark:text-gray-300">{{ meal.strArea }}</span>
           </div>
 
-          <div  class="text-white mb-3">
+          <div class="text-white mb-3">
             <b>Ingredients and Measures</b>
             <ul>
-            <template v-for="(el,index) of new Array(20)">
-              <li v-if="meal[`strIngredient${index+1}`]">
-                {{ index + 1 }}. {{ meal[`strIngredient${index + 1}`] }} - {{ meal[`strMeasure${index + 1}`] }}
-              </li>
-            </template>
+              <template v-for="(el,index) of new Array(20)">
+                <li v-if="meal[`strIngredient${index+1}`]">
+                  {{ index + 1 }}. {{ meal[`strIngredient${index + 1}`] }} - {{ meal[`strMeasure${index + 1}`] }}
+                </li>
+              </template>
             </ul>
           </div>
 
-          <div>
-            <span class="font-bold text-gray-700 dark:text-gray-300">Instructions:</span>
-            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-              {{ meal.strInstructions }}
-            </p>
-          </div>
         </div>
+
+        <div class="md:flex-1">
+          <span class="font-bold text-gray-700 dark:text-gray-300">Instructions:</span>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+            {{ meal.strInstructions }}
+          </p>
+        </div>
+
       </div>
     </div>
   </div>
